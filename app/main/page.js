@@ -18,12 +18,12 @@ const socialLinks = [
 
 
 const merchItems = [
-  { title: "Limited Edition Tee", description: "Exclusive design", img: "/images/merch-1.jpg", price: "$29.99" },
-  { title: "Signature Hoodie", description: "Stay cozy in style", img: "/images/merch-2.jpg", price: "$49.99" },
-  { title: "Exclusive Vinyl", description: "Collector's item", img: "/images/merch-3.jpg", price: "$24.99" },
-  { title: "Tour Poster", description: "Commemorate the experience", img: "/images/merch-2.jpg", price: "$19.99" },
-  { title: "Album CD", description: "Physical copy with bonus tracks", img: "/images/merch-3.jpg", price: "$14.99" },
-];
+    { title: "Limited Edition Tee", description: "Exclusive design", img: "/images/merch-1.jpg", price: "$29.99" },
+    { title: "Signature Hoodie", description: "Stay cozy in style", img: "/images/merch-2.jpg", price: "$49.99" },
+    { title: "Exclusive Vinyl", description: "Collector&apos;s item", img: "/images/merch-3.jpg", price: "$24.99" },
+    { title: "Tour Poster", description: "Commemorate the experience", img: "/images/merch-2.jpg", price: "$19.99" },
+    { title: "Album CD", description: "Physical copy with bonus tracks", img: "/images/merch-3.jpg", price: "$14.99" },
+  ];
 
 const events = [
   { date: "2023-08-15", venue: "The Fillmore", location: "San Francisco, CA" },
@@ -265,8 +265,8 @@ export default function MainPage() {
                   <div className="mb-6">
                     <p className="text-sm text-gray-400 mb-2">Event Details</p>
                     <p className="text-gray-300">
-                      Join us for an unforgettable night of music and energy as Ozzy Tapan takes the stage at {selectedEvent?.venue}. 
-                      Don't miss this opportunity to experience the electrifying performance live!
+                    Join us for an unforgettable night of music and energy as Ozzy Tapan takes the stage at {selectedEvent?.venue}. 
+                    Don&apos;t miss this opportunity to experience the electrifying performance live!
                     </p>
                   </div>
                   
