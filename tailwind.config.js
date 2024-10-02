@@ -11,6 +11,11 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        'poppins': ['var(--font-poppins)'],
+        'glancyr-neue': ['var(--font-glancyr-neue)'],
+        'glancyr-neue-bold': ['var(--font-glancyr-neue-bold)'],
+      },
     },
   },
   plugins: [],

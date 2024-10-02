@@ -6,11 +6,6 @@ import { ExternalLink } from 'lucide-react';
 import { FaSpotify, FaInstagram, FaEnvelope } from 'react-icons/fa';
 import { SiOnlyfans } from 'react-icons/si';
 
-// Remove or comment out these imports if the components don't exist
-// import { Card, CardContent, CardHeader } from "@/components/ui/card";
-// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-// import { Button } from "@/components/ui/button";
-
 const links = [
   { name: 'Spotify', url: 'https://spotify.com/artist', Icon: FaSpotify },
   { name: 'Instagram', url: 'https://instagram.com/artist', Icon: FaInstagram },
@@ -20,26 +15,26 @@ const links = [
 
 export default function ProfessionalLinktree() {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-black to-purple-900 p-4">
+    <div className="flex justify-center items-center min-h-screen bg-[#020617] p-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="w-full max-w-md"
       >
-        <div className="overflow-hidden shadow-2xl bg-gray-900 text-gray-100 rounded-3xl">
+        <div className="overflow-hidden shadow-2xl bg-gradient-to-br from-[#0A192F] to-[#1E3A8A] text-[#EFEFEF] rounded-3xl">
           <div className="relative h-48 bg-cover bg-center" style={{ backgroundImage: "url('/images/bg.jpg')" }}>
             <div className="absolute -bottom-16 w-full flex justify-center">
               <img
-                src="/images/ozzy.jpg"
+                src="/images/ozzy-logo.png"
                 alt="Ozzy Tapan"
-                className="w-32 h-32 rounded-full border-4 border-gray-900 shadow-xl"
+                className="w-32 h-32 rounded-full border-4 border-[#212E47] shadow-xl"
               />
             </div>
           </div>
           <div className="pt-20 pb-10 px-6">
-            <h2 className="text-3xl font-bold mb-2 text-center">Ozzy Tapan</h2>
-            <p className="text-gray-400 mb-6 text-center">Dropping beats and melting hearts 💖</p>
+            <h2 className="text-3xl font-bold mb-2 text-center font-glancyr-neue-bold">Ozzy Tapan</h2>
+            <p className="text-[#EFEFEF] mb-6 text-center font-glancyr-neue">Dropping beats and melting hearts 💖</p>
             <div className="mb-8">
               <iframe 
                 style={{borderRadius: '12px'}} 
@@ -64,7 +59,7 @@ export default function ProfessionalLinktree() {
                     href={link.url}
                     target={link.url.startsWith('http') ? '_blank' : '_self'}
                     rel="noopener noreferrer"
-                    className="flex items-center w-full bg-gray-800 hover:bg-gray-700 text-gray-200 py-3 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
+                    className="flex items-center w-full bg-[#3E6480] hover:bg-[#5D1A1F] text-[#EFEFEF] py-3 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 font-poppins"
                   >
                     <link.Icon className="text-2xl mr-4 w-8" />
                     <span className="flex-grow text-left">{link.name}</span>
@@ -75,10 +70,9 @@ export default function ProfessionalLinktree() {
                 </motion.div>
               ))}
             </div>
-            
 
             <button
-              className="w-full bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white font-bold py-3 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
+              className="w-full bg-[#0A192F] hover:bg-[#1E3A8A] text-[#EFEFEF] font-bold py-3 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105 font-glancyr-neue-bold"
               onClick={() => window.location.href = '/main'}
             >
               Visit Main Site
