@@ -23,13 +23,13 @@ const poppins = localFont({
 });
 
 const glancyrNeue = localFont({ 
-  src: './fonts/glancyr-glancyr-regular-400.ttf',
-  variable: '--font-glancyr-neue'
+  src: './fonts/GlancyrNeue-Regular.otf',
+  variable: '--font-GlancyrNeue-Regular'
 });
 
 const glancyrNeueBold = localFont({ 
-  src: './fonts/glancyr-glancyr-bold-700.ttf',
-  variable: '--font-glancyr-neue-bold'
+  src: './fonts/GlancyrNeue-Bold.otf',
+  variable: '--font-GlancyrNeue-Bold'
 });
 
 export default function RootLayout({ children }) {

@@ -12,9 +12,9 @@ module.exports = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        'poppins': ['var(--font-poppins)'],
-        'glancyr-neue': ['var(--font-glancyr-neue)'],
-        'glancyr-neue-bold': ['var(--font-glancyr-neue-bold)'],
+        'Poppins-Regular': ['var(--font-Poppins-Regular)'],
+        'GlancyrNeue-Regular': ['var(--font-GlancyrNeue-Regular)'],
+        'GlancyrNeue-Bold': ['var(--font-GlancyrNeue-Bold)'],
       },
     },
   },

@@ -9,7 +9,6 @@ import { SiOnlyfans } from 'react-icons/si';
 const links = [
   { name: 'Spotify', url: 'https://spotify.com/artist', Icon: FaSpotify },
   { name: 'Instagram', url: 'https://instagram.com/artist', Icon: FaInstagram },
-  { name: 'Onlyfans', url: 'https://onlyfans.com/artist', Icon: SiOnlyfans },
   { name: 'Contact', url: '/contact', Icon: FaEnvelope },
 ];
 
@@ -33,8 +32,8 @@ export default function ProfessionalLinktree() {
             </div>
           </div>
           <div className="pt-20 pb-10 px-6">
-            <h2 className="text-3xl font-bold mb-2 text-center font-glancyr-neue-bold">Ozzy Tapan</h2>
-            <p className="text-[#EFEFEF] mb-6 text-center font-glancyr-neue">Dropping beats and melting hearts 💖</p>
+            <h2 className="text-3xl font-bold mb-2 text-center font-GlancyrNeue-Bold">Ozzy Tapan</h2>
+            <p className="text-[#EFEFEF] mb-6 text-center font-GlancyrNeue-Regular">Dropping beats and melting hearts 💖</p>
             <div className="mb-8">
               <iframe 
                 style={{borderRadius: '12px'}} 
@@ -59,7 +58,7 @@ export default function ProfessionalLinktree() {
                     href={link.url}
                     target={link.url.startsWith('http') ? '_blank' : '_self'}
                     rel="noopener noreferrer"
-                    className="flex items-center w-full bg-[#3E6480] hover:bg-[#5D1A1F] text-[#EFEFEF] py-3 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 font-poppins"
+                    className="flex items-center w-full bg-[#3E6480] hover:bg-[#5D1A1F] text-[#EFEFEF] py-3 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 font-Poppins-Regular"
                   >
                     <link.Icon className="text-2xl mr-4 w-8" />
                     <span className="flex-grow text-left">{link.name}</span>
@@ -72,7 +71,7 @@ export default function ProfessionalLinktree() {
             </div>
 
             <button
-              className="w-full bg-[#0A192F] hover:bg-[#1E3A8A] text-[#EFEFEF] font-bold py-3 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105 font-glancyr-neue-bold"
+              className="w-full bg-[#0A192F] hover:bg-[#1E3A8A] text-[#EFEFEF] font-bold py-3 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105 font-GlancyrNeue-Bold"
               onClick={() => window.location.href = '/main'}
             >
               Visit Main Site
