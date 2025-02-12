@@ -1,84 +1,141 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
-import { FaSpotify, FaInstagram, FaEnvelope } from 'react-icons/fa';
-import { SiOnlyfans } from 'react-icons/si';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState, useRef } from 'react';
+import { Card, CardHeader, CardBody, CardFooter, Button, Skeleton, Divider, Chip, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
+import { FaChevronDown, FaShoppingCart, FaCalendarAlt, FaMapMarkerAlt, FaTicketAlt } from 'react-icons/fa';
+import dynamic from 'next/dynamic';
 
-const links = [
-  { name: 'Spotify', url: 'https://spotify.com/artist', Icon: FaSpotify },
-  { name: 'Instagram', url: 'https://instagram.com/artist', Icon: FaInstagram },
-  { name: 'Contact', url: '/contact', Icon: FaEnvelope },
+const ShopifyBuyButton = dynamic(() => import('../components/ShopifyBuyButton'), {
+  ssr: false
+});
+
+const socialLinks = [
+  { name: 'Facebook', icon: '/icons8-facebook.svg', url: 'https://facebook.com/ozzytapan' },
+  { name: 'Instagram', icon: '/icons8-instagram.svg', url: 'https://instagram.com/ozzytapan' },
+  { name: 'Spotify', icon: '/icons8-spotify.svg', url: 'https://open.spotify.com/artist/ozzytapan' },
+  { name: 'Apple Music', icon: '/icons8-itunes.svg', url: 'https://music.apple.com/us/artist/ozzy-tapan' },
+  { name: 'Soundcloud', icon: '/icons8-soundcloud.svg', url: 'https://soundcloud.com/ozzytapan' },
+  { name: 'Deezer', icon: '/icons8-deezer.svg', url: 'https://www.deezer.com/artist/ozzytapan' },
+  { name: 'Amazon Music', icon: '/icons8-amazon-music.svg', url: 'https://music.amazon.com/artists/ozzy-tapan' },
 ];
 
-export default function ProfessionalLinktree() {
-  return (
-    <div className="flex justify-center items-center min-h-screen bg-[#020617] p-4">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="w-full max-w-md"
-      >
-        <div className="overflow-hidden shadow-2xl bg-gradient-to-br from-[#0A192F] to-[#1E3A8A] text-[#EFEFEF] rounded-3xl">
-          <div className="relative h-48 bg-cover bg-center" style={{ backgroundImage: "url('/images/bg.jpg')" }}>
-            <div className="absolute -bottom-16 w-full flex justify-center">
-              <img
-                src="/images/ozzy-logo.png"
-                alt="Ozzy Tapan"
-                className="w-32 h-32 rounded-full border-4 border-[#212E47] shadow-xl"
-              />
-            </div>
-          </div>
-          <div className="pt-20 pb-10 px-6">
-            <h2 className="text-3xl font-bold mb-2 text-center font-GlancyrNeue-Bold">Ozzy Tapan</h2>
-            <p className="text-[#EFEFEF] mb-6 text-center font-GlancyrNeue-Regular">Dropping beats and melting hearts 💖</p>
-            <div className="mb-8">
-              <iframe 
-                style={{borderRadius: '12px'}} 
-                src="https://open.spotify.com/embed/track/3bQiITRsyW0C34CELN2wqN?utm_source=generator&theme=1" 
-                width="100%" 
-                height="152" 
-                frameBorder="0" 
-                allowFullScreen="" 
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                loading="lazy"
-              ></iframe>
-            </div>
-            <div className="space-y-4 mb-8">
-              {links.map((link, index) => (
-                <motion.div
-                  key={link.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <a
-                    href={link.url}
-                    target={link.url.startsWith('http') ? '_blank' : '_self'}
-                    rel="noopener noreferrer"
-                    className="flex items-center w-full bg-[#3E6480] hover:bg-[#5D1A1F] text-[#EFEFEF] py-3 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 font-Poppins-Regular"
-                  >
-                    <link.Icon className="text-2xl mr-4 w-8" />
-                    <span className="flex-grow text-left">{link.name}</span>
-                    {link.url.startsWith('http') && (
-                      <ExternalLink className="ml-2 h-4 w-4" />
-                    )}
-                  </a>
-                </motion.div>
-              ))}
-            </div>
 
-            <button
-              className="w-full bg-[#0A192F] hover:bg-[#1E3A8A] text-[#EFEFEF] font-bold py-3 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105 font-GlancyrNeue-Bold"
-              onClick={() => window.location.href = '/main'}
-            >
-              Visit Main Site
-            </button>
+const merchItems = [
+    { title: "Limited Edition Tee", description: "Exclusive design", img: "/images/merch-1.jpg", price: "$29.99" },
+    { title: "Signature Hoodie", description: "Stay cozy in style", img: "/images/merch-2.jpg", price: "$49.99" },
+    { title: "Exclusive Vinyl", description: "Collector&apos;s item", img: "/images/merch-3.jpg", price: "$24.99" },
+    { title: "Tour Poster", description: "Commemorate the experience", img: "/images/merch-2.jpg", price: "$19.99" },
+    { title: "Album CD", description: "Physical copy with bonus tracks", img: "/images/merch-3.jpg", price: "$14.99" },
+  ];
+
+const events = [
+  { date: "2023-08-15", venue: "The Fillmore", location: "San Francisco, CA" },
+  { date: "2023-08-18", venue: "The Wiltern", location: "Los Angeles, CA" },
+  { date: "2023-08-22", venue: "Red Rocks Amphitheatre", location: "Morrison, CO" },
+  { date: "2023-08-25", venue: "Madison Square Garden", location: "New York, NY" },
+];
+
+
+export default function MainPage() {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [imagesLoaded, setImagesLoaded] = useState({});
+  const homeRef = useRef(null);
+  const merchRef = useRef(null);
+  const eventsRef = useRef(null);
+  const shopRef = useRef(null);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [selectedEvent, setSelectedEvent] = useState(null);
+
+  const scrollToSection = (ref) => {
+    ref.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const openTicketModal = (event) => {
+    setSelectedEvent(event);
+    onOpen();
+  };
+
+  return (
+    <div className="snap-y snap-mandatory h-screen overflow-y-auto">
+      <section ref={homeRef} className="snap-start h-screen bg-black flex flex-col items-center justify-between p-4 relative">
+        <Image
+          src="/images/ozzy-main.jpg"
+          alt="Ozzy Tapan"
+          layout="fill"
+          objectFit="contain"
+          quality={100}
+          priority
+        />
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        
+        <div className="absolute top-4 left-4 z-20">
+          <Image
+            src="/images/logo-white.png"
+            alt="Logo"
+            width={50}
+            height={25}
+            className="w-8 h-8 md:w-[50px] md:h-[50px]"
+            objectFit="contain"
+          />
+        </div>
+
+        <div className="relative z-10 flex-grow flex flex-col items-start justify-center w-full pl-8">
+          <div className="md:static absolute top-20 left-8">
+            <h1 className="text-4xl md:text-6xl font-bold mb-2 md:mb-4 text-white font-glancyr-neue-bold">OZZY</h1>
+            <h1 className="text-4xl md:text-6xl font-bold mb-2 md:mb-4 text-white font-glancyr-neue-bold">TAPAN.</h1>
+            <p className="text-xl md:text-2xl text-white font-poppins">SONGWRITER,</p>
+            <p className="text-xl md:text-2xl text-white font-poppins">PRODUCER &</p>
+            <p className="text-xl md:text-2xl text-white font-poppins">ARTIST</p>
           </div>
         </div>
-      </motion.div>
+
+        <div className="relative z-10 w-full flex justify-center items-center mb-20 bg-black bg-opacity-20 rounded-full p-2">
+          {socialLinks.map((link, index) => (
+            <Link
+              key={link.name}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mx-2 transition-all duration-300 ease-in-out transform hover:scale-125"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <div className="relative">
+                <Image
+                  src={link.icon}
+                  alt={link.name}
+                  width={48}
+                  height={48}
+                  className={`transition-all duration-300 ease-in-out ${
+                    hoveredIndex === index ? 'scale-125' : 
+                    (hoveredIndex === index - 1 || hoveredIndex === index + 1) ? 'scale-110' : 'scale-100'
+                  }`}
+                />
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Add scroll indicator */}
+        <div 
+          onClick={() => scrollToSection(shopRef)} 
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer animate-bounce"
+        >
+          <FaChevronDown className="text-white text-3xl" />
+        </div>
+      </section>
+
+      {/* New Shop Section */}
+      <section ref={shopRef} className="snap-start h-screen bg-white flex flex-col items-center justify-center p-4">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 font-glancyr-neue-bold">SHOP COMING SOON</h2>
+        <div className="w-full max-w-4xl">
+          <ShopifyBuyButton />
+        </div>
+      </section>
+
+      {/* Add your other sections here */}
     </div>
   );
 }
