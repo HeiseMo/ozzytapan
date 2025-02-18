@@ -12,15 +12,17 @@ const ShopifyBuyButton = dynamic(() => import('../components/ShopifyBuyButton'),
 });
 
 const socialLinks = [
-  { name: 'Facebook', icon: '/icons8-facebook.svg', url: 'https://facebook.com/ozzytapan' },
-  { name: 'Instagram', icon: '/icons8-instagram.svg', url: 'https://instagram.com/ozzytapan' },
-  { name: 'Spotify', icon: '/icons8-spotify.svg', url: 'https://open.spotify.com/artist/ozzytapan' },
-  { name: 'Apple Music', icon: '/icons8-itunes.svg', url: 'https://music.apple.com/us/artist/ozzy-tapan' },
+  { name: 'TikTok', icon: '/icons8-tiktok-50.svg', url: 'https://www.tiktok.com/@ozzytapanmusic' },
+  { name: 'Instagram', icon: '/icons8-instagram.svg', url: 'https://www.instagram.com/ozzytapanmusic' },
+  { name: 'Spotify', icon: '/icons8-spotify.svg', url: 'https://open.spotify.com/intl-de/artist/22Gr8xchrgr8UljsGjNQen?si=8DaEQ9qhTBW-Bqie0WZNkw' },
+  { name: 'Apple Music', icon: '/icons8-itunes.svg', url: 'https://music.apple.com/de/artist/ozzy-tapan/1567772364' },
+  { name: 'Shopify', icon: '/icons8-shopify.svg', url: 'https://m1u23q-pv.myshopify.com/' },
+];
+/*
   { name: 'Soundcloud', icon: '/icons8-soundcloud.svg', url: 'https://soundcloud.com/ozzytapan' },
   { name: 'Deezer', icon: '/icons8-deezer.svg', url: 'https://www.deezer.com/artist/ozzytapan' },
   { name: 'Amazon Music', icon: '/icons8-amazon-music.svg', url: 'https://music.amazon.com/artists/ozzy-tapan' },
-];
-
+*/
 
 const merchItems = [
     { title: "Limited Edition Tee", description: "Exclusive design", img: "/images/merch-1.jpg", price: "$29.99" },
