@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useState, useRef } from 'react';
 
 const socialLinks = [
-  { name: 'Facebook', icon: '/icons8-facebook.svg', url: 'https://facebook.com/ozzytapan' },
+  { name: 'Facebook', icon: '/icons8-facebook.svg', url: 'https://www.facebook.com/ozzytapanmusic' },
   { name: 'Amazon Music', icon: '/icons8-amazon-music.svg', url: 'https://music.amazon.com/artists/B0951KWTKL/ozzy-tapan' },
   { name: 'TikTok', icon: '/icons8-tiktok-50.svg', url: 'https://www.tiktok.com/@ozzytapanmusic' },
   { name: 'Deezer', icon: '/icons8-deezer.svg', url: 'https://www.deezer.com/de/artist/133097282' },
