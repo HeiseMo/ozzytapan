@@ -5,14 +5,15 @@ import Link from 'next/link';
 import { useState, useRef } from 'react';
 
 const socialLinks = [
-  { name: 'Facebook', icon: '/icons8-facebook.svg', url: 'https://www.facebook.com/ozzytapanmusic' },
-  { name: 'Amazon Music', icon: '/icons8-amazon-music.svg', url: 'https://music.amazon.com/artists/B0951KWTKL/ozzy-tapan' },
-  { name: 'TikTok', icon: '/icons8-tiktok-50.svg', url: 'https://www.tiktok.com/@ozzytapanmusic' },
-  { name: 'Deezer', icon: '/icons8-deezer.svg', url: 'https://www.deezer.com/de/artist/133097282' },
   { name: 'Instagram', icon: '/icons8-instagram.svg', url: 'https://www.instagram.com/ozzytapanmusic' },
+  { name: 'Facebook', icon: '/icons8-facebook.svg', url: 'https://www.facebook.com/ozzytapanmusic' },
+  { name: 'TikTok', icon: '/icons8-tiktok-50.svg', url: 'https://www.tiktok.com/@ozzytapanmusic' },
   { name: 'Spotify', icon: '/icons8-spotify.svg', url: 'https://open.spotify.com/intl-de/artist/22Gr8xchrgr8UljsGjNQen?si=8DaEQ9qhTBW-Bqie0WZNkw&nd=1&dlsi=13023b2e1cc6400e' },
   { name: 'Apple Music', icon: '/icons8-itunes.svg', url: 'https://music.apple.com/de/artist/ozzy-tapan/1567772364' },
+  { name: 'YouTube', icon: '/icons8-youtube.svg', url: 'https://www.youtube.com/@ozzytapan' },
   { name: 'SoundCloud', icon: '/icons8-soundcloud.svg', url: 'https://soundcloud.com/ozzytapan' },
+  { name: 'Deezer', icon: '/icons8-deezer.svg', url: 'https://www.deezer.com/de/artist/133097282' },
+  { name: 'Amazon Music', icon: '/icons8-amazon-music.svg', url: 'https://music.amazon.com/artists/B0951KWTKL/ozzy-tapan' },
   { name: 'Shop', icon: '/icons8-shopify.svg', url: 'https://m1u23q-pv.myshopify.com/' },
 ];
 
